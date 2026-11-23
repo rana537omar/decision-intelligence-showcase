@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decision Intelligence for Industrial Operations (Operations Optimization Platform)</title>
+<meta name="description" content="Computes production schedules, stock policy, delivery routes and store rosters, then approves and executes them on autopilot within your guardrails.">
+<meta property="og:title" content="Decision Intelligence for Industrial Operations (Operations Optimization Platform)">
+<meta property="og:description" content="Schedules, stock policy, routes and rosters: computed, approved and executed on autopilot. Only the exceptions reach a person.">
+<meta property="og:image" content="https://rana537omar.github.io/decision-intelligence-showcase/media/banner.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="media/icon.svg">
+<style>
+:root { --bg: #0a0d12; --panel: #10151c; --line: #212a36; --ink: #e7edf4; --muted: #8e9bab; --brand: #b6f23c; --soft: #cdf77a; --wa: #25d366; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font: 16px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; color: var(--ink); background: var(--bg); }
+a { color: var(--soft); }
+img, video { max-width: 100%; display: block; height: auto; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+header { position: sticky; top: 0; z-index: 20; background: rgba(10, 13, 18, .9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+header .wrap { display: flex; align-items: center; gap: 14px; height: 62px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15.5px; color: #fff; text-decoration: none; white-space: nowrap; }
+.brand img { width: 30px; height: 30px; }
+.brand small { font-weight: 500; font-size: 13px; color: var(--soft); }
+nav { margin-left: auto; display: flex; gap: 20px; align-items: center; }
+nav a { color: var(--muted); text-decoration: none; font-size: 14.5px; font-weight: 500; white-space: nowrap; }
+nav a:hover { color: #fff; }
+.btn { display: inline-flex; align-items: center; gap: 9px; background: var(--wa); color: #06301a !important; font-weight: 700; padding: 11px 20px; border-radius: 99px; text-decoration: none; }
+.btn.ghost { background: transparent; border: 1px solid #4a5768; color: var(--ink) !important; }
+.btn svg { width: 19px; height: 19px; }
+.hero { background: radial-gradient(1100px 620px at 50% 0%, #26380f 0%, #121a0a 48%, var(--bg) 100%); padding: 74px 0 40px; text-align: center; }
+.hero h1 { font: 700 clamp(34px, 6vw, 62px)/1.05 "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif; letter-spacing: -.03em; margin: 0; text-wrap: balance; }
+.hero h1 em { font-style: normal; color: var(--brand); }
+.hero .type { font-size: clamp(18px, 2.6vw, 25px); color: var(--soft); font-weight: 600; margin: 12px 0 20px; }
+.hero p { max-width: 780px; margin: 0 auto 28px; font-size: 19px; color: #cfd7e0; }
+.cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.shot-hero { margin: 46px auto 0; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 30px 90px rgba(0, 0, 0, .6); cursor: zoom-in; }
+section { padding: 70px 0; }
+h2 { font-size: clamp(26px, 4vw, 36px); letter-spacing: -.02em; margin: 0 0 8px; text-align: center; text-wrap: balance; }
+.lead { text-align: center; color: var(--muted); max-width: 780px; margin: 0 auto 36px; }
+video { width: 100%; border-radius: 14px; border: 1px solid var(--line); background: #000; box-shadow: 0 24px 70px rgba(0, 0, 0, .55); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+.card h3 { margin: 0 0 10px; font-size: 18px; color: #fff; }
+.card ul { margin: 0; padding-left: 18px; color: #c6ced8; font-size: 15px; }
+.card li { margin-bottom: 7px; }
+.card li b { color: #fff; font-weight: 600; }
+.how { background: linear-gradient(180deg, #0f150a, var(--bg)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.how .grid { grid-template-columns: repeat(4, 1fr); }
+.how .card { text-align: center; }
+.how .n { width: 44px; height: 44px; border-radius: 12px; background: rgba(182, 242, 60, .16); color: var(--brand); display: grid; place-items: center; margin: 0 auto 12px; font-weight: 700; font-size: 19px; }
+.how p { margin: 0; color: #c6ced8; font-size: 14.5px; }
+.note { text-align: center; color: var(--muted); font-size: 13.5px; margin: 22px auto 0; max-width: 840px; }
+.gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+figure { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+figure img { width: 100%; cursor: zoom-in; }
+figcaption { padding: 11px 15px; font-size: 14.5px; color: #c6ced8; }
+figcaption b { color: #fff; }
+.phones { width: 100%; max-width: 860px; margin: 40px auto 0; border-radius: 14px; }
+.final { text-align: center; background: radial-gradient(900px 420px at 50% 100%, #26380f 0%, var(--bg) 70%); }
+.final .btn { font-size: 19px; padding: 15px 30px; }
+footer { border-top: 1px solid var(--line); padding: 26px 0 40px; color: var(--muted); font-size: 13.5px; text-align: center; }
+#lb { position: fixed; inset: 0; background: rgba(0, 0, 0, .94); display: none; place-items: center; z-index: 50; padding: 20px; cursor: zoom-out; }
+#lb.on { display: grid; }
+#lb img { max-height: 92vh; border-radius: 10px; }
+@media (max-width: 1080px) { .brand small { display: none; } }
+@media (max-width: 860px) {
+  .grid, .how .grid { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr; }
+  nav a:not(.btn) { display: none; }
+  .hero { padding-top: 48px; }
+  section { padding: 50px 0; }
+}
+@media (max-width: 520px) { .brand { font-size: 13px; white-space: normal; line-height: 1.2; } .btn { padding: 9px 14px; } }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="#top"><img src="media/icon.svg" alt=""> Decision Intelligence for Industrial Operations <small>(Operations Optimization Platform)</small></a>
+  <nav><a href="#demo">Demo</a><a href="#how">How it works</a><a href="#features">Features</a><a href="#screens">Screenshots</a>
+    <a class="btn" href="https://wa.me/201208562225?text=Hello%2C%20I%20saw%20Decision%20Intelligence%20for%20Industrial%20Operations%20(Operations%20Optimization%20Platform)%20and%20I%20would%20like%20to%20get%20the%20full%20system%20and%20the%20source%20code." target="_blank" rel="noopener">WhatsApp</a></nav>
+</div></header>
+
+<div class="hero" id="top"><div class="wrap">
+  <h1>Decision Intelligence <em>for Industrial Operations</em></h1>
+  <div class="type">(Operations Optimization Platform)</div>
+  <p>It works out the production schedule, stock policy, delivery routes and store rosters that cost the least, then approves and executes them by itself when they pass your guardrails. Your team only sees the exceptions.</p>
+  <div class="cta">
+    <a class="btn" href="https://wa.me/201208562225?text=Hello%2C%20I%20saw%20Decision%20Intelligence%20for%20Industrial%20Operations%20(Operations%20Optimization%20Platform)%20and%20I%20would%20like%20to%20get%20the%20full%20system%20and%20the%20source%20code." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3z"/></svg>Get the full system &amp; code</a>
+    <a class="btn ghost" href="#demo">Watch the demo</a>
+  </div>
+  <img class="shot-hero zoom" src="media/command-center.png" alt="Command center: autopilot status, savings run-rate, the five current decisions and the activity log" width="1920" height="1080">
+</div></div>
+
+<section id="demo"><div class="wrap">
+  <h2>See it in three and a half minutes</h2>
+  <p class="lead">A visitor runs a real engine on the public site and books a session. Then the console: autopilot and its guardrails, the five decisions with today's practice beside the optimised plan, a line breakdown re-planned and executed with no one involved, a truck failure that autopilot holds for a person, and the data, API and reports behind it. The company and figures shown are fictional demo data.</p>
+  <video controls preload="none" poster="media/video-poster.png" src="media/Decision-Intelligence-demo.mp4"></video>
+</div></section>
+
+<section id="how" class="how"><div class="wrap">
+  <h2>How it works</h2>
+  <p class="lead">From live data to an executed plan, without a planner in the loop.</p>
+  <div class="grid">
+    <div class="card"><div class="n">1</div><h3>Encode the operation</h3><p>Jobs, lines, SKUs, vehicles, stops, shifts and demand, kept current by API or CSV.</p></div>
+    <div class="card"><div class="n">2</div><h3>Set the trade-offs</h3><p>What a late order, a changeover minute, a stock-out or an hour of overtime costs you.</p></div>
+    <div class="card"><div class="n">3</div><h3>Compute and compare</h3><p>The engine returns the best plan it finds, always next to what today's practice would cost.</p></div>
+    <div class="card"><div class="n">4</div><h3>Let it run itself</h3><p>Plans that pass your guardrails are approved and executed. The rest are held and raised as alerts.</p></div>
+  </div>
+</div></section>
+
+<section id="features"><div class="wrap">
+  <h2>Five decisions, one autopilot</h2>
+  <p class="lead">Each engine answers one operational question, and they chain together.</p>
+  <div class="grid">
+    <div class="card"><h3>Manufacturing</h3><ul>
+      <li><b>Production sequencing</b> across lines.</li>
+      <li><b>Family changeovers</b>, maintenance windows and due dates.</li>
+      <li><b>Time-of-use energy</b> tariffs in the cost.</li>
+      <li><b>Gantt view</b> of the optimised plan and today's practice.</li></ul></div>
+    <div class="card"><h3>Supply chain and demand</h3><ul>
+      <li><b>Order quantity, safety stock and reorder point</b> per SKU.</li>
+      <li><b>Working-capital budget</b> as a hard limit.</li>
+      <li><b>Weekly demand forecast</b> per SKU, checked against a naive forecast.</li></ul></div>
+    <div class="card"><h3>Logistics and retail</h3><ul>
+      <li><b>Vehicle routing</b> with capacity, delivery windows and customer tiers.</li>
+      <li><b>Route map</b> and per-vehicle load, distance and cost.</li>
+      <li><b>Store rosters</b> that follow hourly demand.</li></ul></div>
+    <div class="card"><h3>Autopilot</h3><ul>
+      <li><b>Manual, supervised or autonomous</b>, per decision.</li>
+      <li><b>Re-computes</b> on a schedule, on every data change and on every disruption.</li>
+      <li><b>Guardrails</b>: saving, late jobs, unserved stops, on-time, fill rate, coverage.</li>
+      <li><b>One switch</b> pauses all automation.</li></ul></div>
+    <div class="card"><h3>Exceptions only</h3><ul>
+      <li><b>Disruptions</b>: line breakdown, rush order, vehicle failure, same-day order, demand spike.</li>
+      <li><b>Alerts</b> for held plans and failed executions, with a webhook for team chat.</li>
+      <li><b>Data-health checks</b> that block unattended execution on bad data.</li>
+      <li><b>Audit trail</b> of every step.</li></ul></div>
+    <div class="card"><h3>Around it</h3><ul>
+      <li><b>Decision chain</b>: forecast, stock, production, routes and rosters in one run.</li>
+      <li><b>API</b> for systems to push data and events and read the plan in force.</li>
+      <li><b>Reports</b> with CSV export and a print layout.</li>
+      <li><b>Public site</b> with a live demo and self-booked discovery sessions.</li>
+      <li><b>Runs on your own server</b>; no online AI service is used.</li></ul></div>
+  </div>
+  <p class="note"><b>Good to know:</b> the scheduling, routing and rostering engines are heuristic searches that return the best plan found, not a mathematical proof of optimality. The ERP, MES, WMS, fleet and workforce connectors in this version are demo adapters that write to an outbox; a webhook connector sends decisions out for real, and integrations with specific systems are built per client. The platform does not send email.</p>
+</div></section>
+
+<section id="screens" class="how"><div class="wrap">
+  <h2>Screenshots</h2>
+  <p class="lead">Click any image to enlarge it.</p>
+  <div class="gallery">
+    <figure><img class="zoom" loading="lazy" src="media/autopilot.png" alt="Autopilot page with mode, cadence, connector and guardrails per decision" width="1920" height="1080"><figcaption><b>Autopilot</b>: mode, schedule and guardrails per decision.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/production-schedule.png" alt="Production decision with guardrail checks and a Gantt chart of three lines" width="1920" height="1080"><figcaption><b>Production schedule</b>: the optimised sequence.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/production-baseline.png" alt="Gantt chart of today's practice with late jobs outlined in red" width="1920" height="1080"><figcaption><b>Today's practice</b>: late orders outlined in red.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/route-plan.png" alt="Route map with one colour per vehicle" width="1920" height="1080"><figcaption><b>Route plan</b>: capacity, windows and tiers respected.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/inventory-policy.png" alt="Table of order quantity, safety stock, reorder point and capital per SKU" width="1920" height="1080"><figcaption><b>Stock policy</b>: per SKU, with what to order now.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/store-roster.png" alt="Seven small charts of rostered staff against hourly demand" width="1920" height="1080"><figcaption><b>Store roster</b>: cover that follows demand.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/demand-forecast.png" alt="Small charts of demand history and forecast per SKU" width="1920" height="1080"><figcaption><b>Demand forecast</b>: per SKU, with its error.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/decision-chain.png" alt="Five linked decision cards from forecast to roster" width="1920" height="1080"><figcaption><b>Decision chain</b>: five linked decisions in one run.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/monitor.png" alt="Form to log a disruption, live disruptions and the execution outbox" width="1920" height="1080"><figcaption><b>Monitor</b>: log a disruption, see what was sent out.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/reoptimised-schedule.png" alt="Schedule re-planned around a line breakdown" width="1920" height="1080"><figcaption><b>Re-planned</b> around a breakdown and executed.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/held-decision.png" alt="Routing decision held because two stops are unserved" width="1920" height="1080"><figcaption><b>Held</b>: outside the guardrails, so a person decides.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/alerts.png" alt="Alerts list" width="1920" height="1080"><figcaption><b>Alerts</b>: only what needs a person.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/encoded-data.png" alt="Editable data table with data-health status" width="1920" height="1080"><figcaption><b>Encoded data</b>: editable, with health checks.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/integrations-api.png" alt="Connectors, API keys and API reference" width="1920" height="1080"><figcaption><b>Integrations and API</b>: connectors and keys.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/reports.png" alt="Operations report with savings, autonomy rate and decisions per day" width="1920" height="1080"><figcaption><b>Reports</b>: savings, autonomy rate, daily volume.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/discovery-requests.png" alt="Discovery requests with score and booked session" width="1920" height="1080"><figcaption><b>Discovery requests</b>: self-booked and scored.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/site-live-demo.png" alt="Public site live demo with before and after route maps" width="1920" height="1080"><figcaption><b>Live demo</b> on the public site, no sign-up.</figcaption></figure>
+    <figure><img class="zoom" loading="lazy" src="media/site-booking.png" alt="Public site booking form with a time picker" width="1920" height="1080"><figcaption><b>Self-serve booking</b> with a calendar file.</figcaption></figure>
+  </div>
+  <img class="phones" loading="lazy" src="media/phones.png" alt="The public site, command center and autopilot on phones" width="1500" height="980">
+  <p class="note">The company, products, customers, people and figures shown are fictional demo data created for this showcase. Savings are measured against simple rule-of-thumb planning on that demo data and are not real results or a promise of results.</p>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2>Get the full system</h2>
+  <p class="lead">Want this platform for your operation or your clients, a live demo, or the complete source code? Message me on WhatsApp.</p>
+  <a class="btn" href="https://wa.me/201208562225?text=Hello%2C%20I%20saw%20Decision%20Intelligence%20for%20Industrial%20Operations%20(Operations%20Optimization%20Platform)%20and%20I%20would%20like%20to%20get%20the%20full%20system%20and%20the%20source%20code." target="_blank" rel="noopener">WhatsApp +20 120 856 2225</a>
+</div></section>
+
+<footer><div class="wrap">Copyright © 2026 Rana Omar. All rights reserved. Decision Intelligence for Industrial Operations and its source code are proprietary and are not included in this showcase. All data shown is fictional.</div></footer>
+
+<div id="lb"><img alt=""></div>
+<script>
+const lb = document.getElementById('lb');
+document.querySelectorAll('.zoom').forEach((i) => i.addEventListener('click', () => { lb.firstChild.src = i.src; lb.firstChild.alt = i.alt; lb.classList.add('on'); }));
+lb.addEventListener('click', () => lb.classList.remove('on'));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lb.classList.remove('on'); });
+</script>
+</body>
+</html>
